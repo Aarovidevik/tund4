@@ -1,12 +1,15 @@
 <?php 
-	require("../../config.php");
+	
 	require("functions.php");
+	
+	if(isset ($_SESSION["userId"])){
+		header("Location: data.php");
+	}
+	
 	//var_dump($_GET);
 	//echo "<br>";
 	//var_dump($_POST);
-	if(isset($_SESSION["userId"])){
-			header("Location: data.php");
-		}
+		
 	$signupEmailError = "";
 	$signupEmail = "";
 	
@@ -95,6 +98,9 @@
 	) {
 		$notice = login($_POST["loginEmail"], $_POST["loginPassword"]);
 	}
+	
+	
+
 	
 ?>
 <!DOCTYPE html>
